@@ -17,7 +17,7 @@ import history from './utils/history';
 
 import './assets/styles/index.css';
 
-ReactDOM.hydrate(
+ReactDOM.render(
 	<HelmetProvider>
 		<Router history={history}>
 			<App />

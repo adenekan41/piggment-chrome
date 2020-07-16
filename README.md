@@ -14,10 +14,7 @@
 
 - 😎 Inspiring Gradients And Palettes
 - 💻 Offline Support
-- 🙅‍♂️ Zero dependencies
-- ✂️ Super-flexible Core
 - ✅ Fully tested and reliable
-- ⚒ CommonJS, ESM & browser standalone support
 
 ## ⚡️About
 
