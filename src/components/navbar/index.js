@@ -124,8 +124,8 @@ const NavLayout = memo(({ location }) => {
 								>
 									Saved
 								</NavDropdown.Item>
-								<NavDropdown.Item href="chrome://history">
-									History
+								<NavDropdown.Item href="#" onClick={() => setDark()}>
+									Set theme to {theme ? 'Light' : 'Dark'}
 								</NavDropdown.Item>
 							</NavDropdown>
 							<Nav.Link
@@ -269,7 +269,7 @@ const CreatorSlate = styled.a`
 	background: red;
 	border-radius: 50px;
 	font-size: 12px;
-	padding: 6px 20px;
+	padding: 6px 18px;
 	background: var(--bg-white);
 	border: 1px solid var(--gray);
 	color: var(--gray);

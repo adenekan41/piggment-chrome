@@ -184,7 +184,7 @@ html {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   background-color: var(--accent) !important;
 }
