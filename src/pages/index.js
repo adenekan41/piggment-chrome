@@ -149,7 +149,7 @@ const Home = () => {
 					<div className="container">
 						<div className="row justify-content-center align-items-center text-left fadeInUp">
 							<div className="col-md-3">
-								<h4>
+								<h4 className="text-center text-md-left">
 									{time.includes('AM')
 										? 'Hey There!, Good Morning'
 										: time.split(':')[0] >= 12 ||
@@ -263,7 +263,7 @@ const Home = () => {
 						home_state?.second?.id &&
 						home_state?.third?.id ? (
 							<div className="row fadeInUp">
-								<div className="col-md-8">
+								<div className="col-md-8 mb-3 mb-md-0">
 									<Card
 										data={home_state?.first}
 										palette={home_state?.first?.palette}
@@ -293,7 +293,7 @@ const Home = () => {
 								</div>
 							</div>
 						) : null}
-						<div className="bottom_bar fadeInUp fadeInFill">
+						<div className="bottom_bar d-block d-md-flex fadeInUp fadeInFill">
 							<a href="https://piggment.co/explore">Explore Gradients</a>
 							<a href="https://piggment.co/palette">Discover Palettes</a>
 							<a href="https://piggment.co/about">About</a>
@@ -324,7 +324,7 @@ const Header = styled.header`
 
 	h1 {
 		font-weight: 500;
-		font-size: calc(var(--font-lg) - 7px);
+		font-size: calc(var(--font-lg) - 6px);
 		color: var(--black);
 		-webkit-letter-spacing: -1.3px;
 		-moz-letter-spacing: -1.3px;
@@ -378,6 +378,11 @@ const Header = styled.header`
 			color: var(--black);
 			border-right: 0.5px solid var(--pattern-dot);
 			opacity: 0.75;
+			@media (max-width: 787px) {
+				border-radius: 1px !important;
+
+				width: 100%;
+			}
 			&:last-child {
 				border-radius: 0px 50px 50px 0px;
 				border-right: none !important;

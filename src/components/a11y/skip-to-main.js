@@ -27,7 +27,7 @@ const SkipToMain = ({ content = '0' }) => {
 const Wrapper = styled.a`
 	left: -999px;
 	position: fixed;
-	top: auto;
+	top: 0;
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
@@ -38,7 +38,7 @@ const Wrapper = styled.a`
 		color: #fff;
 		left: auto;
 		background: linear-gradient(200deg, var(--theme-primary), var(--accent));
-		top: auto;
+		top: 0;
 		width: auto;
 		height: auto;
 		overflow: auto;

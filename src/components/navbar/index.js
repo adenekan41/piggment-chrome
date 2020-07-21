@@ -140,6 +140,14 @@ const NavLayout = memo(({ location }) => {
 					</Navbar.Collapse>
 				</div>
 			</NavWrapper>
+
+			<CreatorSlate
+				href="https://codewonders.dev"
+				target="_blank"
+				rel="nopener noreferrer"
+			>
+				By <span>CW</span>
+			</CreatorSlate>
 		</>
 	);
 });
@@ -252,6 +260,27 @@ const Offline = styled.div`
 	}
 `;
 
+const CreatorSlate = styled.a`
+	position: fixed;
+	bottom: 1rem;
+	display: block;
+	right: 1rem;
+	z-index: 99;
+	background: red;
+	border-radius: 50px;
+	font-size: 12px;
+	padding: 6px 20px;
+	background: var(--bg-white);
+	border: 1px solid var(--gray);
+	color: var(--gray);
+	opacity: 0.7;
+
+	span {
+		font-family: Abril Fatface;
+		color: var(--black);
+	}
+`;
+
 NavLayout.propTypes = propTypes;
 
 const DarkTheme = css`
@@ -276,7 +305,7 @@ const LightTheme = css`
 	:root {
 		--theme-primary: #1b21dd;
 		--white: #fafafa;
-		--bg-white: #fff8f0;
+		--bg-white: #fffaf5;
 		--black: #0d1442;
 		--input-border: #d8d8d8;
 		--pattern-dot: #0a113e26;
@@ -284,7 +313,7 @@ const LightTheme = css`
 		--contrast: 1;
 		--card: #fff;
 		--alert-success: #438875;
-		--triad-black: #ffeae3;
+		--triad-black: #ffebe6;
 		--alert-danger: #da3451;
 		--sidebar-width: 260px;
 		--gray: #8f9bb3;
