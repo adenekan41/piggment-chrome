@@ -10,7 +10,7 @@ import { setState, getState } from 'codewonders-helpers';
 import { clearState } from 'codewonders-helpers/bundle-cjs/helpers/localstorage';
 /* -------------------------- Internal Dependencies ------------------------- */
 import PureComponent from 'components/pure-component-wrapper';
-
+import history from 'utils/history';
 /* --------------------------- Image Dependencies --------------------------- */
 import { ReactComponent as Light } from '../../assets/icons/icon-light.svg';
 import { ReactComponent as Dark } from '../../assets/icons/icon-dark.svg';
@@ -24,7 +24,7 @@ const propTypes = {
 
 const NavLayout = memo(({ location }) => {
 	const [theme, setTheme] = useState(!!getState('PIGGMENT'));
-
+	const [online, setOnline] = useState(true);
 	const PureLight = PureComponent(Light);
 	const PureDark = PureComponent(Dark);
 
@@ -44,9 +44,26 @@ const NavLayout = memo(({ location }) => {
 		loadTheme();
 	}, [loadTheme]);
 
+	useEffect(() => {
+		window.addEventListener('online', () => setOnline(true));
+		window.addEventListener('offline', () => setOnline(false));
+	}, []);
+
 	return (
 		<>
 			<BodyStyling theme={theme} />
+			{!online && (
+				<Offline>
+					<h1>SORRY YOU'RE OFFLINE</h1>
+					<p>
+						Check the network cable or router / Reset the modem or router /
+						Reconnect to Wi-Fi
+					</p>
+					<button className="btn btn-piggment" onClick={() => history.go()}>
+						Try Again
+					</button>
+				</Offline>
+			)}
 			<NavWrapper
 				collapseOnSelect
 				expand="md"
@@ -209,6 +226,29 @@ const NavWrapper = styled(Navbar)`
 			color: var(--black) !important;
 			font-weight: 600;
 		}
+	}
+`;
+
+const Offline = styled.div`
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #0a102bf2;
+	top: 0;
+	z-index: 9999;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	h1 {
+		font-weight: 700;
+		font-size: calc(var(--font-lg) - 7px);
+	}
+	button {
+		margin-top: 12px;
+		border: none;
+		padding: 10px 40px;
 	}
 `;
 

@@ -6,7 +6,7 @@
 	</a>
  
 </p> 
-<h2 align="center">Chrome Extension</h2>
+<h3 align="center">Chrome Extension</h3>
 
 <br />
 

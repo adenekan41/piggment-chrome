@@ -155,7 +155,7 @@ const Home = () => {
 										: time.split(':')[0] >= 12 ||
 										  (time.split(':')[0] <= 4 && time.includes('PM'))
 										? 'Welcome Back!, Great Noon'
-										: 'Hello!, Evening'}
+										: 'Hello There!, Good Evening'}
 								</h4>
 								<h1>{time}</h1>
 							</div>
@@ -388,7 +388,8 @@ const Header = styled.header`
 			&:hover {
 				background: var(--black) !important;
 				color: var(--bg-white) !important;
-				transition: all 0.5s cubic-bezier(0.4, 0, 1, 1);
+				text-decoration: none;
+				transition: all 0.2s cubic-bezier(0.4, 0, 1, 1);
 			}
 		}
 	}

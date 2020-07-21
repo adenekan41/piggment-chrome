@@ -19,7 +19,7 @@ import GeneratorPaletteCard from './generate-palette';
 
 /* ----------------------------- Card PropTypes ----------------------------- */
 const propTypes = {
-	cardMode: PropTypes.string,
+	cardMode: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 	data: PropTypes.object,
 	layout: PropTypes.string,
 	mode: PropTypes.string,

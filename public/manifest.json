@@ -1,27 +1,25 @@
 {
-    "manifest_version": 2,
-    "short_name": "Piggment",
-    "name": "Piggment",
-    "version": "1",
-    "description": "The gradient you have always wanted. Generate, explore, easy CSS copy crossbrowser code all in one place",
-    "author": "Adenekan Wonderful",
-    "browser_action": {
-        "default_icon": "favicon.ico"
-    },
-    "content_security_policy": "script-src 'self' https://www.gstatic.com/  https://www.google-analytics.com/ ; object-src 'self'; ",
-    "icons": {
-        "16": "favicon.ico",
-        "192": "logo192.png",
-        "512": "logo512.png"
-    },
-    "chrome_url_overrides": {
-        "newtab": "index.html"
-    },
-    "permissions": [
-        "notifications",
-        "topSites",
-        "chrome://favicon/",
-        "history",
-        "identity"
-    ]
+  "manifest_version": 2,
+  "short_name": "Piggment",
+  "name": "Piggment - Gradients and colours for the next smart creator",
+  "version": "1",
+  "description": "The gradient you have always wanted. Generate, explore, easy CSS copy crossbrowser code all in one place",
+  "author": "Adenekan Wonderful",
+  "browser_action": {
+    "default_icon": "favicon.ico",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/  https://www.google-analytics.com/ ; object-src 'self'; ",
+  "icons": {
+    "16": "favicon.ico",
+    "192": "logo192.png",
+    "512": "logo512.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "topSites",
+    "chrome://favicon/"
+  ]
 }
