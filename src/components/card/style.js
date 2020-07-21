@@ -203,9 +203,13 @@ export const GenerateWrapper = styled.div`
 				user-select: none;
 			}
 		}
+		.none-button {
+			color: var(--black);
+		}
 		h6 {
 			font-size: calc(var(--font-sm) + 1.1px);
 			font-weight: 600;
+			color: var(--black);
 			letter-spacing: -0.4px;
 			margin-bottom: 9px;
 		}
@@ -250,7 +254,10 @@ export const GenerateWrapper = styled.div`
 		background: var(--bg-white);
 		border-radius: 6px;
 		background-size: calc(20 * 0.5px) calc(20 * 0.5px);
-		background-image: radial-gradient(#0a113e30 0.5px, transparent 0.5px);
+		background-image: radial-gradient(
+			var(--pattern-dot) 0.5px,
+			transparent 0.5px
+		);
 		display: flex;
 		width: 97.5%;
 		position: fixed;
@@ -324,7 +331,10 @@ export const LargeCardWrapper = styled.div`
 		height: 100%;
 		width: 100%;
 		background-size: calc(20 * 0.5px) calc(20 * 0.5px);
-		background-image: radial-gradient(#0a113e30 0.5px, transparent 0.5px);
+		background-image: radial-gradient(
+			var(--pattern-dot) 0.5px,
+			transparent 0.5px
+		);
 		left: 0;
 		top: 0;
 		border-radius: 0;

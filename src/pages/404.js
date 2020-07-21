@@ -45,7 +45,10 @@ const Header = styled.header`
 	align-items: center;
 	justify-content: center;
 	background-size: calc(20 * 0.5px) calc(20 * 0.5px);
-	background-image: radial-gradient(#0a113e47 0.5px, transparent 0.5px);
+	background-image: radial-gradient(
+		var(--pattern-dot) 0.5px,
+		transparent 0.5px
+	);
 	display: flex;
 	text-align: center;
 	h1 {

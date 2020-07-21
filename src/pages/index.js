@@ -55,9 +55,6 @@ const Home = () => {
 			loadGradients(3);
 			loadpalettes(3);
 		}
-		if (chrome.topSites) {
-			chrome.topSites.get((topSite) => setTopSite(topSite));
-		}
 
 		setHomeState(
 			arrayPickOne([
@@ -132,6 +129,12 @@ const Home = () => {
 			])
 		);
 	}, [loadGradients, state, palette, loadpalettes]);
+
+	useEffect(() => {
+		if (chrome.topSites) {
+			chrome.topSites.get((topSite) => setTopSite(topSite));
+		}
+	}, []);
 
 	useEffect(() => {
 		setInterval(() => startTime(), 1000);

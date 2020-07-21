@@ -377,7 +377,7 @@ const Section = styled.section`
 	.contrast__result {
 		padding: 1rem;
 		border-radius: 10px;
-		background: #fff;
+		background: var(--contrast-white);
 
 		.results__section {
 			background: rgb(0, 0, 0);
@@ -404,6 +404,7 @@ const Section = styled.section`
 				text-align: center;
 				font-size: calc(var(--font-sm) - 1px);
 				font-weight: 500;
+				color: var(--black);
 				margin-bottom: 0px;
 			}
 			span {
@@ -456,6 +457,8 @@ const Section = styled.section`
 		padding: 27px 21px;
 		border: none;
 		font-size: var(--font-sm);
+		background: var(--contrast-white);
+		color: var(--black);
 		box-shadow: none !important;
 		&::-webkit-input-placeholder {
 			color: #b1b1b1;
@@ -476,7 +479,7 @@ const Section = styled.section`
 		width: 28px;
 	}
 	span.input-group-text {
-		background: #fff;
+		background: var(--contrast-white);
 		border: none;
 		padding-right: 0;
 		svg {

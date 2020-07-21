@@ -124,7 +124,7 @@ const NavLayout = memo(({ location }) => {
 								>
 									Saved
 								</NavDropdown.Item>
-								<NavDropdown.Item href="#" onClick={() => setDark()}>
+								<NavDropdown.Item onClick={() => setDark()}>
 									Set theme to {theme ? 'Light' : 'Dark'}
 								</NavDropdown.Item>
 							</NavDropdown>
@@ -298,6 +298,7 @@ const DarkTheme = css`
 		--alert-success: #438875;
 		--alert-danger: #da3451;
 		--sidebar-width: 260px;
+		--contrast-white: #1d2035;
 		--gray: #8f9bb3;
 	}
 `;
@@ -311,6 +312,7 @@ const LightTheme = css`
 		--pattern-dot: #0a113e26;
 		--accent: #152ba2;
 		--contrast: 1;
+		--contrast-white: #fff;
 		--card: #fff;
 		--alert-success: #438875;
 		--triad-black: #ffebe6;
