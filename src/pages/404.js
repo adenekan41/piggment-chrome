@@ -28,7 +28,7 @@ const NotFound = () => {
 								/>
 								<h1>Ouch! Page Not Found</h1>
 								<p>
-									<Link to="/">Go Home</Link>
+									<Link to="/index.html">Go Home</Link>
 								</p>
 							</article>
 						</div>

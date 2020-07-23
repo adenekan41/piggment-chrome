@@ -81,7 +81,7 @@ const NavLayout = memo(({ location }) => {
 						'container-fluid px-5'
 					}
 				>
-					<Navbar.Brand as={Link} to="/">
+					<Navbar.Brand as={Link} to="/index.html">
 						<img src={Logo} alt="Piggment Logo" />
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbar" />
