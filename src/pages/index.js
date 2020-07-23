@@ -22,33 +22,15 @@ import { ReactComponent as Google } from '../assets/icons/icon-google.svg';
 import { ReactComponent as Duck } from '../assets/icons/icon-duck.svg';
 import { ReactComponent as Bing } from '../assets/icons/icon-bing.svg';
 import { ReactComponent as Yandex } from '../assets/icons/icon-yandex.svg';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 	const { state, palette, loadGradients, loadpalettes } = useContext(
 		GradientContext
 	);
 
-	const PureGoogle = PureComponent(Google);
-	const PureDuck = PureComponent(Duck);
-	const PureBing = PureComponent(Bing);
-	const PureYandex = PureComponent(Yandex);
-
 	const [home_state, setHomeState] = useState([]);
 	const [topSites, setTopSite] = useState([]);
-	const [time, setTime] = useState(moment().format('LTS'));
-	const [input, setInput] = useState({
-		value: '',
-		search: 'https://Google.com/search?q=',
-	});
-
-	const searchGoogle = () => {
-		setInput({ ...input, value: '' });
-		window.location.href = input.search + encodeURIComponent(input.value);
-	};
-
-	const startTime = () => {
-		setTime(moment().format('LTS'));
-	};
 
 	useEffect(() => {
 		if (state.length < 3 || palette.length < 3) {
@@ -136,106 +118,13 @@ const Home = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		setInterval(() => startTime(), 1000);
-
-		return () => {
-			clearInterval(startTime);
-		};
-	}, []);
-
 	return (
 		<>
 			<SEO />
 			<main>
 				<Header className="fadeIn">
 					<div className="container">
-						<div className="row justify-content-center align-items-center text-left fadeInUp">
-							<div className="col-md-3">
-								<h4 className="text-center text-md-left">
-									{time.includes('AM')
-										? 'Hey There!, Good Morning'
-										: time.split(':')[0] >= 12 ||
-										  (time.split(':')[0] <= 4 && time.includes('PM'))
-										? 'Welcome Back!, Great Noon'
-										: 'Hello There!, Good Evening'}
-								</h4>
-								<h1>{time}</h1>
-							</div>
-							<div className="col-md-9">
-								<div className="input-group">
-									<div className="input-group-prepend">
-										<span className="input-group-text" id="search">
-											<Dropdown>
-												<Dropdown.Toggle as={Search}></Dropdown.Toggle>
-
-												<Dropdown.Menu>
-													<Dropdown.Item
-														onClick={() =>
-															setInput({
-																...input,
-																search: 'https://Google.com/search?q=',
-															})
-														}
-													>
-														<PureGoogle /> Search with Google
-													</Dropdown.Item>
-													<Dropdown.Item
-														onClick={() =>
-															setInput({
-																...input,
-																search: 'https://Duckduckgo.com/?q=',
-															})
-														}
-													>
-														<PureDuck /> Search with Duckduckgo
-													</Dropdown.Item>
-													<Dropdown.Item
-														onClick={() =>
-															setInput({
-																...input,
-																search: 'https://Bing.com/search?q=',
-															})
-														}
-													>
-														<PureBing /> Search with Bing
-													</Dropdown.Item>
-													<Dropdown.Item
-														onClick={() =>
-															setInput({
-																...input,
-																search: 'https://Yandex.com/search/?text=',
-															})
-														}
-													>
-														<PureYandex /> Search with Yandex
-													</Dropdown.Item>
-												</Dropdown.Menu>
-											</Dropdown>
-										</span>
-									</div>
-									<input
-										type="text"
-										className="form-control"
-										placeholder={
-											'Search ' + input.search.split('/')[2].replace('.com', '')
-										}
-										aria-label="Search"
-										onChange={(e) =>
-											setInput({ ...input, value: e.target.value })
-										}
-										onKeyPress={(e) => {
-											const key = e.keyCode || e.which;
-											if (key === 13) {
-												e.preventDefault();
-												searchGoogle();
-											}
-										}}
-										aria-describedby="search"
-									/>
-								</div>
-							</div>
-						</div>
+						<HeaderSlate />
 						<div className="col-md-8 m-auto fadeInUp ani-delay-2 fadeInFill">
 							<div className="d-flex justify-content-center mt-3 mb-4">
 								{topSites.length > 0 &&
@@ -297,15 +186,133 @@ const Home = () => {
 							</div>
 						) : null}
 						<div className="bottom_bar d-block d-md-flex fadeInUp fadeInFill">
-							<a href="https://piggment.co/explore">Explore Gradients</a>
-							<a href="https://piggment.co/palette">Discover Palettes</a>
-							<a href="https://piggment.co/about">About</a>
-							<a href="https://piggment.co/privacy">Privacy & Policy</a>
+							<Link to="/explore">Explore Gradients</Link>
+							<Link to="/palette">Discover Palettes</Link>
+							<Link to="/generate">Generate Gradients</Link>
 						</div>
 					</div>
 				</Header>
 			</main>
 		</>
+	);
+};
+
+export const HeaderSlate = () => {
+	const PureGoogle = PureComponent(Google);
+	const PureDuck = PureComponent(Duck);
+	const PureBing = PureComponent(Bing);
+	const PureYandex = PureComponent(Yandex);
+
+	const [time, setTime] = useState(moment().format('LTS'));
+	const [input, setInput] = useState({
+		value: '',
+		search: 'https://Google.com/search?q=',
+	});
+
+	const startTime = () => {
+		setTime(moment().format('LTS'));
+	};
+
+	const searchGoogle = () => {
+		setInput({ ...input, value: '' });
+		window.location.href = input.search + encodeURIComponent(input.value);
+	};
+
+	useEffect(() => {
+		setInterval(() => startTime(), 1000);
+
+		return () => {
+			clearInterval(startTime);
+		};
+	}, []);
+
+	return (
+		<SlateStyle>
+			<div className="row justify-content-center align-items-center text-left fadeInUp">
+				<div className="col-md-3">
+					<h4 className="text-center text-md-left">
+						{time.includes('AM')
+							? 'Hey There!, Good Morning'
+							: time.split(':')[0] >= 12 ||
+							  (time.split(':')[0] <= 4 && time.includes('PM'))
+							? 'Welcome Back!, Great Noon'
+							: 'Hello There!, Good Evening'}
+					</h4>
+					<h1>{time}</h1>
+				</div>
+				<div className="col-md-9">
+					<div className="input-group">
+						<div className="input-group-prepend">
+							<span className="input-group-text" id="search">
+								<Dropdown>
+									<Dropdown.Toggle as={Search}></Dropdown.Toggle>
+
+									<Dropdown.Menu>
+										<Dropdown.Item
+											onClick={() =>
+												setInput({
+													...input,
+													search: 'https://Google.com/search?q=',
+												})
+											}
+										>
+											<PureGoogle /> Search with Google
+										</Dropdown.Item>
+										<Dropdown.Item
+											onClick={() =>
+												setInput({
+													...input,
+													search: 'https://Duckduckgo.com/?q=',
+												})
+											}
+										>
+											<PureDuck /> Search with Duckduckgo
+										</Dropdown.Item>
+										<Dropdown.Item
+											onClick={() =>
+												setInput({
+													...input,
+													search: 'https://Bing.com/search?q=',
+												})
+											}
+										>
+											<PureBing /> Search with Bing
+										</Dropdown.Item>
+										<Dropdown.Item
+											onClick={() =>
+												setInput({
+													...input,
+													search: 'https://Yandex.com/search/?text=',
+												})
+											}
+										>
+											<PureYandex /> Search with Yandex
+										</Dropdown.Item>
+									</Dropdown.Menu>
+								</Dropdown>
+							</span>
+						</div>
+						<input
+							type="text"
+							className="form-control"
+							placeholder={
+								'Search ' + input.search.split('/')[2].replace('.com', '')
+							}
+							aria-label="Search"
+							onChange={(e) => setInput({ ...input, value: e.target.value })}
+							onKeyPress={(e) => {
+								const key = e.keyCode || e.which;
+								if (key === 13) {
+									e.preventDefault();
+									searchGoogle();
+								}
+							}}
+							aria-describedby="search"
+						/>
+					</div>
+				</div>
+			</div>
+		</SlateStyle>
 	);
 };
 
@@ -325,23 +332,6 @@ const Header = styled.header`
 	text-align: center;
 	display: flex;
 
-	h1 {
-		font-weight: 500;
-		font-size: calc(var(--font-lg) - 6px);
-		color: var(--black);
-		-webkit-letter-spacing: -1.3px;
-		-moz-letter-spacing: -1.3px;
-		-ms-letter-spacing: -1.3px;
-		letter-spacing: -1.3px;
-		margin: 0;
-	}
-	h4 {
-		font-size: 15px;
-		margin-bottom: 9px;
-		color: var(--black);
-		opacity: 0.7;
-		font-weight: 100;
-	}
 	p {
 		color: #717171;
 		margin: 6px 0;
@@ -363,7 +353,7 @@ const Header = styled.header`
 	}
 
 	.bottom_bar {
-		margin: 3.5rem auto 0;
+		margin: 4rem auto 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -445,11 +435,31 @@ const Header = styled.header`
 	.top_site {
 		margin-right: 1rem;
 	}
+`;
+
+const SlateStyle = styled.div`
+	h1 {
+		font-weight: 500;
+		font-size: calc(var(--font-lg) - 6px);
+		color: var(--black);
+		-webkit-letter-spacing: -1.3px;
+		-moz-letter-spacing: -1.3px;
+		-ms-letter-spacing: -1.3px;
+		letter-spacing: -1.3px;
+		margin: 0;
+	}
+	h4 {
+		font-size: 15px;
+		margin-bottom: 9px;
+		color: var(--black);
+		opacity: 0.7;
+		font-weight: 100;
+	}
 	.input-group-text {
-		background: transparent;
+		background: transparent !important;
 		border: none;
 
-		border-bottom: 0px solid var(--input-border);
+		border-bottom: 0px solid var(--input-border) !important;
 		border-radius: 1px;
 		padding: 0;
 
@@ -461,12 +471,12 @@ const Header = styled.header`
 		}
 	}
 	input {
-		padding: 24px 5px;
+		padding: 24px 5px !important;
 		border: none;
 		font-size: 15px;
-		background: transparent;
-		border-bottom: 1px solid var(--input-border);
-		border-radius: 1px;
+		background: transparent !important;
+		border-bottom: 1px solid var(--input-border) !important;
+		border-radius: 1px !important;
 		color: var(--black) !important;
 		&:focus {
 			background: transparent;
@@ -475,5 +485,4 @@ const Header = styled.header`
 		}
 	}
 `;
-
 export default Home;

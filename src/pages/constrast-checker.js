@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 import SEO from 'components/seo';
 import { calculateContrast, ratioStatus, isColor } from 'utils';
+import { HeaderSlate } from 'pages';
 
 /* --------------------------- Image Dependencies --------------------------- */
 import ArrowRight from '../assets/icons/icon-right.svg';
@@ -52,7 +53,12 @@ const ContrastChecker = () => {
 			/>
 			<Section>
 				<div className="container">
-					<div className="row align-items-center justify-content-center">
+					<br />
+					<br />
+					<HeaderSlate />
+					<br />
+					<br />
+					<div className="row mt-5 align-items-center justify-content-center">
 						<div className="col-md-9">
 							<article>
 								<div className="row align-items-center">
