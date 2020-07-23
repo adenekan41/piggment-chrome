@@ -14,6 +14,8 @@ import NavLayout from '../components/navbar';
 import LogoPrimary from 'components/logo-primary';
 import SkipToMain from 'components/a11y/skip-to-main';
 import Home from '../pages';
+import Explore from 'pages/explore';
+import Palette from 'pages/palette';
 /* ------------------------- Component Dependencies ------------------------- */
 const NotFound = lazy(() => import('../pages/404'));
 const GeneratePalette = lazy(() => import('../pages/generate-palette'));
@@ -46,6 +48,8 @@ const routes = ({ location }) => (
 								<Route path="/index.html" component={Home} />
 								<Route path="/saved" component={SavedColors} />
 								<Route path="/generate" component={Generate} />
+								<Route path="/explore" component={Explore} />
+								<Route path="/palette" component={Palette} />
 								<Route path="/generate-palette" component={GeneratePalette} />
 								<Route path="/contrast-checker" component={ContrastChecker} />
 								<Route path="*" component={NotFound} />

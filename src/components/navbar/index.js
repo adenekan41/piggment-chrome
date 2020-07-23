@@ -70,7 +70,10 @@ const NavLayout = memo(({ location }) => {
 				fixed="top"
 				className={`${location.pathname.includes('generate') &&
 					'spaced__out'} ${
-					location.pathname === '/' || location.pathname === '/index.html'
+					location.pathname === '/' ||
+					location.pathname === '/index.html' ||
+					location.pathname.includes('explore') ||
+					location.pathname.includes('/palette')
 						? 'pattern'
 						: ''
 				}`}
@@ -88,8 +91,21 @@ const NavLayout = memo(({ location }) => {
 					<Navbar.Collapse id="navbar">
 						<Nav className="ml-auto">
 							<NavDropdown title={<Grid className="grid" />} id="generate">
-								<NavDropdown.Item href="https://piggment.co/explore">
-									Explore
+								<NavDropdown.Item
+									activeClassName="active"
+									exact
+									as={NavLink}
+									to="/explore"
+								>
+									Explore Gradients
+								</NavDropdown.Item>
+								<NavDropdown.Item
+									activeClassName="active"
+									exact
+									as={NavLink}
+									to="/palette"
+								>
+									Discover Palettes
 								</NavDropdown.Item>
 
 								<NavDropdown.Item
@@ -153,7 +169,6 @@ const NavLayout = memo(({ location }) => {
 });
 const NavWrapper = styled(Navbar)`
 	background: var(--bg-white);
-
 	&.pattern {
 		background-size: calc(20 * 0.5px) calc(20 * 0.5px);
 		background-image: radial-gradient(
@@ -161,6 +176,7 @@ const NavWrapper = styled(Navbar)`
 			transparent 0.5px
 		);
 	}
+
 	&.spaced__out {
 		width: calc(100% - 40px);
 		left: 50%;
@@ -289,27 +305,31 @@ const DarkTheme = css`
 		--white: #fafafa;
 		--bg-white: #080a18;
 		--black: #f2f2f2;
-		--pattern-dot: #dcdfef26;
+		--pattern-dot: #dcdfef1a;
 		--input-border: #505056;
 		--triad-black: #1e0e33;
-		--accent: #0e7cb0;
-		--contrast: 0.5;
+		--accent: #4a5bd3;
+		--contrast: 0.42;
 		--card: #0e1023;
 		--alert-success: #438875;
 		--alert-danger: #da3451;
 		--sidebar-width: 260px;
 		--contrast-white: #1d2035;
 		--gray: #8f9bb3;
+		--fill: #52577b;
+		--fill-2: #52577a45;
 	}
 `;
 const LightTheme = css`
 	:root {
 		--theme-primary: #1b21dd;
 		--white: #fafafa;
-		--bg-white: #fffaf5;
+		--bg-white: #fffaf4;
 		--black: #0d1442;
 		--input-border: #d8d8d8;
-		--pattern-dot: #0a113e26;
+
+		--pattern-dot: rgb(10 17 62 / 17%);
+
 		--accent: #152ba2;
 		--contrast: 1;
 		--contrast-white: #fff;
@@ -319,6 +339,8 @@ const LightTheme = css`
 		--alert-danger: #da3451;
 		--sidebar-width: 260px;
 		--gray: #8f9bb3;
+		--fill: #9a9a9a;
+		--fill-2: #e2e2e294;
 	}
 `;
 export const BodyStyling = createGlobalStyle`

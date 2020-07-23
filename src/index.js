@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 /* -------------------------- Internal Dependencies ------------------------- */
 
@@ -19,9 +19,9 @@ import './assets/styles/index.css';
 
 ReactDOM.render(
 	<HelmetProvider>
-		<Router history={history}>
+		<HashRouter history={history} basename="/index.html">
 			<App />
-		</Router>
+		</HashRouter>
 	</HelmetProvider>,
 	document.getElementById('root')
 );

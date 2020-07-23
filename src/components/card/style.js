@@ -96,7 +96,7 @@ export const BorderWrap = styled.div`
 	.share__button {
 		svg.dropdown-toggle {
 			transition: all 0.3s ease;
-			background: #e2e2e2ad;
+			background: var(--fill-2);
 			border-radius: 50px;
 			width: 1.238em;
 
@@ -255,7 +255,7 @@ export const GenerateWrapper = styled.div`
 		border-radius: 6px;
 		background-size: calc(20 * 0.5px) calc(20 * 0.5px);
 		background-image: radial-gradient(
-			var(--pattern-dot) 0.5px,
+			rgba(10, 17, 62, 0.19) 0.5px,
 			transparent 0.5px
 		);
 		display: flex;
@@ -332,7 +332,7 @@ export const LargeCardWrapper = styled.div`
 		width: 100%;
 		background-size: calc(20 * 0.5px) calc(20 * 0.5px);
 		background-image: radial-gradient(
-			var(--pattern-dot) 0.5px,
+			rgba(10, 17, 62, 0.19) 0.5px,
 			transparent 0.5px
 		);
 		left: 0;
@@ -461,7 +461,7 @@ export const CardWrapper = styled.div`
 
 	svg {
 		width: 1.06em;
-		fill: #9a9a9a;
+		fill: var(--fill);
 	}
 	.card-body {
 		padding: 13px;

@@ -50,9 +50,6 @@ const LargeCard = memo(
 						background: data.color,
 					}}
 					className="large__sum-card"
-					onClick={() => {
-						setShow(true);
-					}}
 				>
 					{children}
 					{viewCode && (

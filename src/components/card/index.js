@@ -89,7 +89,9 @@ const Card = React.memo(
 				setState('SAVED_GRADIENTS', [datas, ...getState('SAVED_GRADIENTS')]);
 
 				setLoved(true);
-				setSnarkbar('Gradient saved succesfully. <a href="/saved">View</a>');
+				setSnarkbar(
+					'Gradient saved succesfully. <a href="/index.html#/saved">View</a>'
+				);
 			}
 		};
 		const savePalette = (datas) => {
@@ -100,7 +102,9 @@ const Card = React.memo(
 				logEvent('SAVE', 'Palette added to pocket', 'SAVED PALETTE');
 				setState('SAVED_PALETTE', [datas, ...getState('SAVED_PALETTE')]);
 				setLoved(true);
-				setSnarkbar('Palette saved succesfully. <a href="/saved">View</a>');
+				setSnarkbar(
+					'Palette saved succesfully. <a href="/index.html#/saved">View</a>'
+				);
 			}
 		};
 
